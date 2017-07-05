@@ -6,7 +6,7 @@ const config = {
     entry: './src/main.ts',
 
     output: {
-        filename: './dist/app.js',
+        filename: './dist/bundle.js',
         path: __dirname
     },
     resolve: {
