@@ -7,7 +7,7 @@ export class Startup {
 
         if(container == null) {
             container = document.createElement('div');
-            container.setAttribute('id', 'container');
+            container.setAttribute('id', containerId);
             document.body.appendChild(container);
         }
         
