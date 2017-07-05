@@ -1,12 +1,14 @@
 import { Component } from "./component";
 
 export class Startup {
-    static launch<T extends Component>(containerId: string, component: new () => T): void {
+    static launch<T extends Component>(component: new () => T, containerId: string = 'container'): void {
+        
         let container = document.getElementById(containerId);
 
         if(container == null) {
-            container = new HTMLDivElement();
+            container = document.createElement('div');
             container.setAttribute('id', 'container');
+            document.body.appendChild(container);
         }
         
         const c = new component();
