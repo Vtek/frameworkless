@@ -1,10 +1,6 @@
-import { Test } from './app/test';
+import { Startup } from './app/infrastructure/startup';
+import { TestComponent } from "./app/components/test.component";
 
 window.onload = () => {
-    const container = document.getElementById('container');
-    if(container != null)
-    {
-        const test = new Test();
-        container.innerHTML = test.getInnerHtml();
-    }        
+    Startup.launch<TestComponent>('container', TestComponent);
 };
