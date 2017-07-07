@@ -1,5 +1,5 @@
-import { ComponentFactory } from './component.factory';
+import { Container } from './container';
 
 export interface Module {
-    load(factory: ComponentFactory): void;
+    load(container: Container): void;
 }
