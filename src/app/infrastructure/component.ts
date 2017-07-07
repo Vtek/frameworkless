@@ -1,3 +1,4 @@
-export interface Component {
-    template(): string;
+export abstract class Component {
+    abstract template(): string;
+    abstract tag(): string;
 }
