@@ -1,7 +1,7 @@
 import { Lifecycle } from './lifecycle';
 
-export interface Dependency {
+export interface Dependency<T> {
     className: string;
-    ctor: Function;
+    ctor: new() => T;
     lifecycle: Lifecycle;
 }
