@@ -1,6 +1,8 @@
 import { Component } from "./component";
+import { Container } from "./container";
 
 export class Startup {
+    static container: Container;
     static launch<T extends Component>(component: new () => T, containerId: string = 'container'): void {
         
         let container = document.getElementById(containerId);
@@ -11,7 +13,7 @@ export class Startup {
             document.body.appendChild(container);
         }
         
-        const c = new component();
+        const c = Startup.container.getInstance<T>(component.name);
         container.innerHTML = c.template();
     }
 }
