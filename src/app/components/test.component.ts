@@ -12,6 +12,9 @@ export class TestComponent extends Component {
                     tag: 'h1',
                     childs: [
                         'This component is a little test to start the project !'
+                    ],
+                    attributes: [
+                        ['style', 'color:red;']
                     ]
                 }, {
                     tag: 'span',
