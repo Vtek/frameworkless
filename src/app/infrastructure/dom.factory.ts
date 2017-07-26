@@ -14,7 +14,7 @@ export class DomFactory {
         if (dom.childs) {
             dom.childs.forEach(child => {
                 if (typeof child === 'string') {
-                    element.innerText = child as string;
+                    element.innerText = child;
                 }
                 else {
                     element.appendChild(this.createElement(child as Dom));
@@ -26,7 +26,13 @@ export class DomFactory {
     }
 
     static createComponent(component: Component): HTMLElement {
-        const tag = component.constructor.name;
+        const tag = component
+            .constructor
+            .name
+            .replace(/([A-Z])/g, (word) => `-${word.toLowerCase()}`)
+            .replace('-component', (word) => '')
+            .substring(1);
+
         return this.createElement({
             tag: tag,
             childs: component.childs
