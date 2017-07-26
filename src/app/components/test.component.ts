@@ -5,7 +5,7 @@ import { root } from "../infrastructure/root";
 @root
 export class TestComponent extends Component {
     readonly childs: Element[] = [{
-        tag: 'h1',
+        name: 'h1',
         childs: [
             'This component is a little test to start the project !'
         ],
@@ -13,18 +13,18 @@ export class TestComponent extends Component {
             ['style', 'color:red;']
         ]
     }, {
-        tag: 'span',
+        name: 'span',
         childs: [
             'This is awesome to render a Virtual DOM component !!', {
-                tag: 'ul',
+                name: 'ul',
                 childs: [{
-                    tag: 'li',
+                    name: 'li',
                     childs: ['test1']
                 }, {
-                    tag: 'li',
+                    name: 'li',
                     childs: ['test2']
                 }, {
-                    tag: 'li',
+                    name: 'li',
                     childs: ['test2']
                 }
                 ]

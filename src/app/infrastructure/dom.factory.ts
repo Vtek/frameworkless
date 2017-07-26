@@ -3,7 +3,7 @@ import { Component } from "./component";
 
 export class DomFactory {
     static createElement(dom: Element): HTMLElement {
-        const element = document.createElement(dom.tag);
+        const element = document.createElement(dom.name);
 
         if (dom.attributes) {
             dom.attributes.forEach(attribute => {
@@ -34,7 +34,7 @@ export class DomFactory {
             .substring(1);
 
         return this.createElement({
-            tag: tag,
+            name: tag,
             childs: component.childs
         });
     }

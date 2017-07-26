@@ -1,5 +1,5 @@
 export interface Element {
-    tag: string,
+    name: string,
     attributes?: Array<[string, any]>,
     childs?: Array<Element | string>
 }
