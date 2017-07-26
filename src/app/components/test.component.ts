@@ -1,6 +1,8 @@
 import { Component } from '../infrastructure/component';
 import { Dom } from "../infrastructure/dom";
+import { root } from "../infrastructure/root";
 
+@root
 export class TestComponent extends Component {
     readonly tag: string = 'test';
     readonly template: Dom = {
