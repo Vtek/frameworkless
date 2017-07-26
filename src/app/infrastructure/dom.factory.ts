@@ -2,27 +2,27 @@ import { Element } from "./element";
 import { Component } from "./component";
 
 export class DomFactory {
-    static createElement(dom: Element): HTMLElement {
-        const element = document.createElement(dom.name);
+    static createElement(element: Element): HTMLElement {
+        const htmlElement = document.createElement(element.name);
 
-        if (dom.attributes) {
-            dom.attributes.forEach(attribute => {
-                element.setAttribute(attribute[0], attribute[1]);
+        if (element.attributes) {
+            element.attributes.forEach(attribute => {
+                htmlElement.setAttribute(attribute[0], attribute[1]);
             });
         }
 
-        if (dom.childs) {
-            dom.childs.forEach(child => {
+        if (element.childs) {
+            element.childs.forEach(child => {
                 if (typeof child === 'string') {
-                    element.innerText = child;
+                    htmlElement.innerText = child;
                 }
                 else {
-                    element.appendChild(this.createElement(child as Element));
+                    htmlElement.appendChild(this.createElement(child as Element));
                 }
             });
         }
 
-        return element;
+        return htmlElement;
     }
 
     static createComponent(component: Component): HTMLElement {
