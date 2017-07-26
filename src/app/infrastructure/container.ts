@@ -11,6 +11,15 @@ export class Container {
         this.dependencies.push(dependency);
     }
 
+    hasDependency(name: string): boolean {
+        for (let i: number = 0, l: number = this.dependencies.length; i < l; i++) {
+            if (this.dependencies[i].name === name)
+                return true;
+        }
+
+        return false;
+    }
+
     getInstance<T>(name: string): T {
         const dependency = this.dependencies.find((dependency) => name == dependency.name);
         const ctor = (dependency as Dependency<T>).ctor;

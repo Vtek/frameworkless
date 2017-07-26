@@ -1,6 +1,7 @@
 import { Component } from '../infrastructure/component';
 import { Element } from "../infrastructure/element";
 import { root } from "../infrastructure/root";
+import { Startup } from "../infrastructure/startup";
 
 @root
 export class TestComponent extends Component {
@@ -30,5 +31,5 @@ export class TestComponent extends Component {
                 ]
             }
         ]
-    }];
+    }, Startup.container.getInstance('NameComponent')];//TODO what a bad way to deal with child components... :(
 }

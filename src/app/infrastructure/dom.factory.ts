@@ -16,6 +16,9 @@ export class DomFactory {
                 if (typeof child === 'string') {
                     htmlElement.innerText = child;
                 }
+                else if (child.constructor.name.toLowerCase().endsWith('component')) {//TODO: OMG, shit code...
+                    htmlElement.appendChild(this.createComponent(child as Component));
+                }
                 else {
                     htmlElement.appendChild(this.createElement(child as Element));
                 }
