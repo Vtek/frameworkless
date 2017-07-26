@@ -1,6 +1,10 @@
 import { Dom } from "./dom";
+import { DomFactory } from "./dom.factory";
 
 export abstract class Component {
-    abstract template(): Dom;
-    abstract tag(): string;
+    readonly abstract template: Dom;
+    readonly abstract tag: string;
+    render(): HTMLElement {
+        return DomFactory.create(this.template);
+    }
 }

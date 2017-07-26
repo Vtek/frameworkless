@@ -1,20 +1,11 @@
 import { Component } from "./component";
 import { Container } from "./container";
-import { DomFactory } from "./dom.factory";
+import { Module } from "./module";
 
 export class Startup {
-    static container: Container;
-    static launch<T extends Component>(component: new () => T, containerId: string = 'container'): void {
-
-        let container = document.getElementById(containerId);
-
-        if (container == null) {
-            container = document.createElement('div');
-            container.setAttribute('id', containerId);
-            document.body.appendChild(container);
-        }
-
-        const c = Startup.container.getInstance<T>(component.name);
-        container.innerHTML = DomFactory.create(c.template());
+    static launch(rootComponent: string, ...modules: Module[]): void {
+        const container = new Container(modules);
+        const component = container.getInstance<Component>(rootComponent);
+        document.body.appendChild(component.render());
     }
 }

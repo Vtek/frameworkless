@@ -3,7 +3,7 @@ import { Dependency } from "./dependency";
 
 export class Container {
     private dependencies: Array<any> = [];
-    constructor(...modules: Module[]) {
+    constructor(modules: Module[]) {
         modules.forEach((module) => module.load(this));
     }
 
