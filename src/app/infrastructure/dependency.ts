@@ -1,7 +1,10 @@
-import { Lifecycle } from './lifecycle';
+export class Dependency<T> {
 
-export interface Dependency<T> {
-    className: string;
-    ctor: new() => T;
-    lifecycle: Lifecycle;
+    readonly name: string;
+    readonly ctor: new () => T;
+
+    constructor(ctor: new () => T) {
+        this.ctor = ctor;
+        this.name = ctor.name;
+    }
 }

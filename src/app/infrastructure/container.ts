@@ -11,8 +11,8 @@ export class Container {
         this.dependencies.push(dependency);
     }
 
-    getInstance<T>(className: string): T {
-        const dependency = this.dependencies.find((dependency) => className == dependency.className);
+    getInstance<T>(name: string): T {
+        const dependency = this.dependencies.find((dependency) => name == dependency.name);
         const ctor = (dependency as Dependency<T>).ctor;
         return new ctor();
     }

@@ -1,5 +1,3 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const config = {
     devtool: 'eval-source-map',
 
