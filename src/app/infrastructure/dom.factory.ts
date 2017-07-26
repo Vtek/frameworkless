@@ -1,7 +1,8 @@
 import { Dom } from "./dom";
+import { Component } from "./component";
 
 export class DomFactory {
-    static create(dom: Dom): HTMLElement {
+    static createElement(dom: Dom): HTMLElement {
         const element = document.createElement(dom.tag);
 
         if (dom.attributes) {
@@ -16,11 +17,19 @@ export class DomFactory {
                     element.innerText = child as string;
                 }
                 else {
-                    element.appendChild(this.create(child as Dom));
+                    element.appendChild(this.createElement(child as Dom));
                 }
             });
         }
 
         return element;
+    }
+
+    static createComponent(component: Component): HTMLElement {
+        const tag = component.constructor.name;
+        return this.createElement({
+            tag: tag,
+            childs: component.childs
+        });
     }
 }
