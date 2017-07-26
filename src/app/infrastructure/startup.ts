@@ -1,6 +1,6 @@
 import { Component } from "./component";
 import { Container } from "./container";
-import { VirtualDomFactory } from "./dom.factory";
+import { DomFactory } from "./dom.factory";
 
 export class Startup {
     static container: Container;
@@ -15,6 +15,6 @@ export class Startup {
         }
 
         const c = Startup.container.getInstance<T>(component.name);
-        container.innerHTML = VirtualDomFactory.create(c.template());
+        container.innerHTML = DomFactory.create(c.template());
     }
 }

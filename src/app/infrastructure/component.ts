@@ -1,6 +1,6 @@
-import { VirtualDOM } from "./dom";
+import { Dom } from "./dom";
 
 export abstract class Component {
-    abstract template(): VirtualDOM;
+    abstract template(): Dom;
     abstract tag(): string;
 }

@@ -1,5 +1,5 @@
-export interface VirtualDOM {
+export interface Dom {
     tag: string,
     attributes?: Array<[string, any]>,
-    childs?: Array<VirtualDOM | string>
+    childs?: Array<Dom | string>
 }
