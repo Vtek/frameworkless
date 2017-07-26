@@ -1,8 +1,8 @@
-import { Dom } from "./dom";
+import { Element } from "./element";
 import { Component } from "./component";
 
 export class DomFactory {
-    static createElement(dom: Dom): HTMLElement {
+    static createElement(dom: Element): HTMLElement {
         const element = document.createElement(dom.tag);
 
         if (dom.attributes) {
@@ -17,7 +17,7 @@ export class DomFactory {
                     element.innerText = child;
                 }
                 else {
-                    element.appendChild(this.createElement(child as Dom));
+                    element.appendChild(this.createElement(child as Element));
                 }
             });
         }

@@ -1,10 +1,10 @@
 import { Component } from '../infrastructure/component';
-import { Dom } from "../infrastructure/dom";
+import { Element } from "../infrastructure/element";
 import { root } from "../infrastructure/root";
 
 @root
 export class TestComponent extends Component {
-    readonly childs: Dom[] = [{
+    readonly childs: Element[] = [{
         tag: 'h1',
         childs: [
             'This component is a little test to start the project !'

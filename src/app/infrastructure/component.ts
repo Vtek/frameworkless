@@ -1,8 +1,8 @@
-import { Dom } from "./dom";
+import { Element } from "./element";
 import { DomFactory } from "./dom.factory";
 
 export abstract class Component {
-    readonly abstract childs: Dom[];
+    readonly abstract childs: Element[];
 
     constructor() {
 
