@@ -1,4 +1,4 @@
 import { Startup } from './app/infrastructure/startup';
-import { TestModule } from "./app/components/test.module";
+import { AppModule } from "./app/components/app.module";
 
-window.onload = () => Startup.launch(new TestModule());
+window.onload = () => Startup.launch(new AppModule());

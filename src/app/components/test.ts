@@ -4,7 +4,7 @@ import { root } from "../infrastructure/root";
 import { Startup } from "../infrastructure/startup";
 
 @root
-export class TestComponent extends Component {
+export class Test extends Component {
     readonly childs: Element[] = [{
         name: 'h1',
         childs: [
@@ -31,5 +31,5 @@ export class TestComponent extends Component {
                 ]
             }
         ]
-    }, Startup.container.getInstance('NameComponent')];//TODO what a bad way to deal with child components... :(
+    }, Startup.container.getInstance('Name')];//TODO what a bad way to deal with child components... :(
 }

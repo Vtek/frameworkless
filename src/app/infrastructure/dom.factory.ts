@@ -1,5 +1,6 @@
 import { Element } from "./element";
 import { Component } from "./component";
+import { Startup } from "./startup";
 
 export class DomFactory {
     static createElement(element: Element): HTMLElement {
@@ -16,11 +17,13 @@ export class DomFactory {
                 if (typeof child === 'string') {
                     htmlElement.innerText = child;
                 }
-                else if (child.constructor.name.toLowerCase().endsWith('component')) {//TODO: OMG, shit code...
-                    htmlElement.appendChild(this.createComponent(child as Component));
-                }
                 else {
-                    htmlElement.appendChild(this.createElement(child as Element));
+                    const element = child as Element;
+
+                    if (Startup.container.hasDependency(element.name))
+                        htmlElement.appendChild(this.createComponent(Startup.container.getInstance<Component>(element.name)));
+                    else
+                        htmlElement.appendChild(this.createElement(child as Element));
                 }
             });
         }
@@ -33,7 +36,6 @@ export class DomFactory {
             .constructor
             .name
             .replace(/([A-Z])/g, (word) => `-${word.toLowerCase()}`)
-            .replace('-component', (word) => '')
             .substring(1);
 
         return this.createElement({
